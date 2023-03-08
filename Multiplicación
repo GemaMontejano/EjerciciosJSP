@@ -15,13 +15,13 @@
 	</form>
 
 	<%
-	String numStr = request.getParameter("numero");
+	String numNuevo = request.getParameter("numero");
 
-	if (numStr == null || numStr.isEmpty()) {
+	if (numNuevo == null || numNuevo.isEmpty()) {
 
 	} else {
 		try {
-			int num = Integer.parseInt(numStr);
+			int num = Integer.parseInt(numNuevo);
 			out.println("<h2>Tabla de multiplicar del " + num + "</h2>");
 			out.println("<table>");
 			for (int i = 1; i <= 10; i++) {
