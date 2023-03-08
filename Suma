@@ -1,0 +1,46 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Suma</title>
+</head>
+<body>
+<%@ page language="java" %>
+<%@ page import="java.io.*, java.util.*" %>
+<html>
+  <head>
+    <title>Suma de dos números</title>
+  </head>
+  <body>
+    <h1>Suma de dos números</h1>
+    <form method="post">
+      <label for="num1">Introduce el primer número:</label>
+      <input type="text" name="num1" id="num1">
+      <br><br>
+      <label for="num2">Introduce el segundo número:</label>
+      <input type="text" name="num2" id="num2">
+      <br><br>
+      <input type="submit" value="Sumar">
+    </form>
+
+    <%
+      // Me daba un error de excepción en la línea del parseInt, así que lo hago con try/catch para manejar la excepción y me sale correctamente.
+      try {
+        int num1 = Integer.parseInt(request.getParameter("num1"));
+        int num2 = Integer.parseInt(request.getParameter("num2"));//Aquí recupero los números
+
+        int resultado = num1 + num2;
+        out.println("<p>La suma de los dos números ingresados es: " + resultado + "</p>");
+      } catch (NumberFormatException e) {//Si introducimos caracteres inválidos nos imprime el mensaje del error 
+        out.println("<p>Error: los números ingresados no son válidos.</p>");
+      } catch (Exception e) {
+        out.println("<p>Error: " + e.getMessage() + "</p>");
+      }
+    %>
+
+  </body>
+</html>
+</body>
+</html>
