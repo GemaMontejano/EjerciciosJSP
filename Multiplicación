@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Tabla de multiplicar</title>
+</head>
+<body>
+	<h1>Tabla de multiplicar</h1>
+	<form>
+		<label for="numero">Introduce un número:</label> <input type="text"
+			id="numero" name="numero">
+		<button type="submit">Tabla de multiplicar</button>
+	</form>
+
+	<%
+	String numStr = request.getParameter("numero");
+
+	if (numStr == null || numStr.isEmpty()) {
+
+	} else {
+		try {
+			int num = Integer.parseInt(numStr);
+			out.println("<h2>Tabla de multiplicar del " + num + "</h2>");
+			out.println("<table>");
+			for (int i = 1; i <= 10; i++) {
+		out.println("<tr>");
+		out.println("<td>" + num + " x " + i + "</td>");
+		out.println("<td>=</td>");
+		out.println("<td>" + (num * i) + "</td>");
+		out.println("</tr>");
+			}
+			out.println("</table>");
+		} catch (NumberFormatException e) {
+			out.println("Número incorrecto");
+		}
+	}
+	%>
+</body>
+</html>
