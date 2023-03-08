@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Formulario de acceso</title>
+</head>
+<body>
+<%
+String nombre = request.getParameter("nombre");
+String contrasena = request.getParameter("contrasena");
+
+if (nombre != null && contrasena != null && nombre.equals("123") && contrasena.equals("123")) {
+%>
+  <p>Acceso permitido</p>
+<%
+} else {
+%>
+  <p>Acceso denegado</p>
+<%
+}
+%>
+
+<form>
+  <label for="nombre">Nombre:</label>
+  <input type="text" name="nombre" id="nombre" required><br>
+
+  <label for="contrasena">Contraseña:</label>
+  <input type="password" name="contrasena" id="contrasena" required><br>
+
+  <input type="submit" value="Acceder">
+</form>
+</body>
+</html>
